@@ -219,8 +219,8 @@ section[id] {
 }
 
 .profile-image {
-  width: 280px;
-  height: 200px;
+  width: min(280px, 30vw);
+  height: min(200px, 22vw);
   border-radius: 15px;
   border: 8px solid rgba(255,255,255,0.2);
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
@@ -366,29 +366,126 @@ section[id] {
 }
 
 /* ===== EDUCATION SECTION ===== */
-.education-table {
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.education-card {
   background: white;
   border-radius: 15px;
-  overflow: hidden;
+  padding: 2rem;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.education-table .table {
-  margin: 0;
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.education-table th {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 1rem;
-  font-weight: 600;
+.education-card .degree {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
 }
 
-.education-table td {
-  padding: 1rem;
-  border-color: #e9ecef;
-  vertical-align: middle;
+.education-card .institution {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+}
+
+.education-card .details {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.education-card .duration {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .education-container {
+    gap: 1rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  .education-card .degree {
+    font-size: 1.2rem;
+  }
+
+  .education-card .institution {
+    font-size: 1rem;
+  }
+
+  .education-card .duration {
+    font-size: 0.9rem;
+  }
+}
+
+/* Additional responsive improvements for very small screens */
+@media (max-width: 576px) {
+  .education-container {
+    gap: 0.75rem;
+  }
+
+  .education-card {
+    padding: 1.25rem;
+  }
+
+  .education-card .degree {
+    font-size: 1.1rem;
+  }
+
+  .education-card .institution {
+    font-size: 0.95rem;
+  }
+
+  .education-card .duration {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .education-container {
+    gap: 0.5rem;
+  }
+
+  .education-card {
+    padding: 1rem;
+  }
+
+  .education-card .degree {
+    font-size: 1rem;
+  }
+
+  .education-card .institution {
+    font-size: 0.9rem;
+  }
+
+  .education-card .duration {
+    font-size: 0.8rem;
+  }
 }
 
 /* ===== PUBLICATIONS SECTION ===== */
@@ -497,8 +594,8 @@ footer a:hover {
   }
   
   .profile-image {
-    width: 240px;
-    height: 170px;
+    width: min(240px, 35vw);
+    height: min(170px, 25vw);
     object-fit: cover;
     object-position: center 10%;
   }
@@ -639,8 +736,8 @@ footer a:hover {
   }
   
   .profile-image {
-    width: 180px;
-    height: 120px;
+    width: min(180px, 40vw);
+    height: min(120px, 27vw);
     object-fit: cover;
     object-position: center 10%;
     margin: 0 auto 1rem;
@@ -972,8 +1069,8 @@ section {
   }
   
   .profile-image {
-    width: 150px;
-    height: 100px;
+    width: min(150px, 45vw);
+    height: min(100px, 30vw);
     margin: 0 auto 0.75rem;
   }
   
@@ -1040,8 +1137,8 @@ section {
   }
   
   .profile-image {
-    width: 120px;
-    height: 80px;
+    width: min(120px, 50vw);
+    height: min(80px, 33vw);
     margin: 0 auto 0.5rem;
   }
   
@@ -1139,8 +1236,8 @@ section {
   }
   
   .profile-image {
-    width: 100px;
-    height: 70px;
+    width: min(100px, 55vw);
+    height: min(70px, 38vw);
     margin: 0 auto 0.25rem;
   }
   
